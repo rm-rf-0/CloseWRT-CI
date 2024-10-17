@@ -15,7 +15,7 @@ on:
         default: 'padavanonly/immortalwrt-mt798x-23.05'
         required: true
         type: choice
-        options: [hanwckf/immortalwrt-mt798x, padavanonly/immortalwrt-mt798x, padavanonly/immortalwrt-mt798x-23.05]
+        options: [hanwckf/immortalwrt-mt798x, padavanonly/immortalwrt-mt798x, padavanonly/immortalwrt-mt798x-23.05,coolsnowwolf/lede]
       BRANCH:
         default: 'openwrt-23.05'
         required: true
