@@ -33,14 +33,34 @@ fi
 
 #23.05专用
 if [[ $WRT_BRANCH == *"23.05"* ]]; then
+	# 插件调整
 	sed -i '/luci-app-openclash/d' ./.config
 	sed -i '/luci-app-upnp/d' ./.config
 	sed -i '/miniupnpd/d' ./.config
-
+	# 插件调整
 	echo "CONFIG_PACKAGE_luci-app-openclash=n" >> ./.config
 	echo "CONFIG_PACKAGE_luci-app-upnp=n" >> ./.config
 	echo "CONFIG_PACKAGE_miniupnpd=n" >> ./.config
-
+	# 移除passwall
+	echo "CONFIG_PACKAGE_luci-app-passwall=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Haproxy=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Client=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Server=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Client=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple_Obfs=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_SingBox=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=n" >> ./.config
+ 	# 移除rclone
+	echo "CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-webui=n" >> ./.config
+	echo "CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng=n" >> ./.config
+ 	# 移除wrtbwmon
+  	echo "CONFIG_PACKAGE_luci-app-wrtbwmon=n" >> ./.config
+	# 其他移除
+	echo "CONFIG_PACKAGE_luci-app-mihomo=y" >> ./.config
 	echo "CONFIG_PACKAGE_luci-app-homeproxy=n" >> ./.config
+ 	# 选中部分
 	echo "CONFIG_PACKAGE_luci-app-upnp-mtk-adjust=y" >> ./.config
 fi
